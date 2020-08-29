@@ -1,0 +1,25 @@
+{% extends "accounts/auth_base.html" %}
+
+{% block content %}
+
+    <div class='row header-blue'>
+        <div class="hero col-12 text-center py-5">
+                {% if key %}
+                    <h1 class='my-5 py-5' style="color: white">Activation Error. Please try again.</h1>
+                {% else %}
+                    <h1 class='my-5 py-5'style="color: white">Re-activate your Email Below.</h1>
+                {% endif %}
+          </div>
+            <div class="col-12 text-center">
+                <form method='POST' action=''>
+
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <input class='btn btn-default' type='submit' value='Resend Activation' />
+
+                </form>
+          </div>
+    </div>
+{% endblock %}
